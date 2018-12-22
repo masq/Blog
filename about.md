@@ -28,6 +28,17 @@ I've had my fair share of issues with mental health, and I'd like a place to sha
 # When
 Whenever I feel like writing something, or whenever I get the time to write down the things I want to talk about. I don't plan on making any type of schedule for writing things.
 
+# `$ whoami`
+Spencer Walden. 
+
+I graduated from the University of Washington (UW) in 2017 with a Bachelor of Science in Informatics with a focus in Information Assurance and CyberSecurity. While I was at UW, I was a undergraduate research assistant to the Computer Science and Engineering department's Networking lab, where I worked on a project called uProxy. My job on the project was to reverse engineer the protocol that WeChat—the popular Chinese texting app/social media platform—uses, so that we could use it as a communication channel. 
+
+After that, I took an internship with a network security startup called Icebrg. While there, I worked to develop methods to detect different hacking groups and malware. As of this writing, I'm technically still at Icebrg as a full-time employee, but Icebrg was bought in July of 2018 by a networking company called Gigamon; so I'm now a part of the Gigamon Applied Threat Research (ATR) team!
+
+I've always been fascinated by hacking and computers, and started on my path to electronic enlightment by joining a FIRST robotics team my senior year of high school (shoutout to team 2471, "team mean machine"). It was an amazing experience that really got me inducted to how to think programmatically about things. While at UW, I spent many hours with the UW Capture the Flag (CTF) team and the UW Collegiate Cyber Defense Competition (CCDC) team. In spending time with those teams, I learned a lot about computers via osmosis; that is, hanging out with a lot of people who know a lot about computers.
+
+In my free time, I love to travel, go to concerts, and play games with friends. Of course, I also enjoy nerding out with random computer-based projects too.
+
 # Cool?
 Cool.
 
