@@ -1,0 +1,7 @@
+# Blog gitignore file
+
+# Vim swap files
+*.swp
+*.swo
+
+# Ignore These Posts
