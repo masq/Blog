@@ -115,7 +115,7 @@ that was so we could break something down to be less than 1. Essentially, we
 had the following in decimal:
 
 | 100's | 10's | 1's |
-----------------------
+|--------------------|
 |  1    |   2  |  7  |
 
 In order to get the number 127. Which means there are 1 groupings of 100, 2
@@ -134,7 +134,7 @@ left.
 
 Base 10
 | 10<sup>2</sup> | 10<sup>1</sup> | 10<sup>0</sup> |
-----------------------------------------------------
+|--------------------------------------------------|
 |     1          |       2        |       7        |
 
 Basically, for any base, you just make that the big number and put the power
@@ -144,11 +144,11 @@ next to it of the column index from the right to left and those are your
 So, what does 127 look like in bases 2 and 16?
 
 | 128's | 64's | 32's | 16's | 8's | 4's | 2's | 1's |
-------------------------------------------------------
+|----------------------------------------------------|
 |   0   |  1   |  1   |  1   |  1  |  1  |  1  |  1  |
 
 | 16's | 1's |
---------------
+|------------|
 |  7   |  f  |
 
 For hexadecimal, it should be noted that since they run out of digits (0-9 being
