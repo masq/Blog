@@ -130,9 +130,8 @@ the boundary is 16, so each "bucket" or column can hold up to 15 in it before it
 resets and increments the next column over.
 
 All of these things are succinctly described with math—like so, from right to
-left.
+left. Base 10:
 
-Base 10
 | 10<sup>2</sup> | 10<sup>1</sup> | 10<sup>0</sup> |
 |--------------------------------------------------|
 |     1          |       2        |       7        |
@@ -143,9 +142,13 @@ next to it of the column index from the right to left and those are your
 
 So, what does 127 look like in bases 2 and 16?
 
+Base 2:
+
 | 128's | 64's | 32's | 16's | 8's | 4's | 2's | 1's |
 |----------------------------------------------------|
 |   0   |  1   |  1   |  1   |  1  |  1  |  1  |  1  |
+
+Base 16:
 
 | 16's | 1's |
 |------------|
