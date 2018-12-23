@@ -42,7 +42,9 @@ You always see this in shows, and when you're on the computer... you see
 Facebook, you see the windows desktop, etc. I see no zeros and ones, so what's
 the deal with that?
 
-Well... it is true. but we need to back up a little bit just to think of the
+Well... it is true, technically... But we need to take a step back in order to
+really put it in perspective and understand what that statement even really
+means. so, let's back up a little bit just to think of the
 theory of information. Take this string of characters for example:
 
 ```
@@ -58,26 +60,32 @@ ORD LAX SEA IAD ATL HNL BOS
 
 Okay, does this mean anything to you? This is much more useful to me. Once
 broken up with spaces like this, I actually recognize those three letter
-groupings as acronyms for airports in the USA. Great, that's really cool, we can
-recognize some meaning from a string of what seemed like random characters. This
-is effectively what a computer does with 0's and 1's. And we can too, if we went
-with similar (what I'll call) "rules".
+groupings as acronyms for airports in the USA. (It's okay if you didn't
+recognize that, I'm just a freak, it's fine). 
+
+## Interpreting information
+Great, that's really cool, we can recognize some meaning from a string of what
+seemed like random characters. This is effectively what a computer does with
+0's and 1's. And we can too, if we went with similar (what I'll call) "rules".
 
 ```
 0100100001100101011011000110110001101111001011000010000001110010011001010110000101100100011001010111001000100001
 ```
 
-Here's a string of 0's and 1's. What does it mean though? Well... a long time
-ago, back in like the 60's (1963 is when the first edition of the ASCII standard
-was published), a bunch of people came together and made some hard decisions.
-They decided what a grouping of 0's and 1's would be, and they also decided what
-each group would correspond to. The American Standard Code for
-Information Interchange, or ASCII (pronounced Ask-y) is one such set of "rules"
-for how to interpret this series of ones and zeros. Basically, we told the
-computer that whenever it sees `01100001`, it should display the character `a`
-(under ASCII). ASCII describes an entire mapping of each permutation of eight 
-0's and 1's. We call each 0 or 1 "slot", a `bit`. A grouping of 8 bits is one
-`byte`. Let's break up the previous string of bits into bytes.
+Here's a string of 0's and 1's. What does it mean though? Not necessarily
+anything, unless we apply some of the right rules to interpret this data.
+
+Well... a long time ago, back in like the 60's (1963 is when the first edition
+of the ASCII standard was published), a bunch of people came together and made
+some hard decisions. They decided what a grouping of 0's and 1's would be, and
+they also decided what each group would correspond to. The American Standard
+Code for Information Interchange, or ASCII (pronounced Ask-y) is one such set
+of "rules" for how to interpret this series of ones and zeros. Basically, we
+told the computer that whenever it sees `01100001`, it should display the
+character `a` (under ASCII). ASCII describes an entire mapping of each
+permutation of eight 0's and 1's. We call each 0 or 1 "slot", a `bit`. A
+grouping of 8 bits is one `byte`. Let's break up the previous string of bits 
+into bytes.
 
 ```
 01001000 01100101 01101100 01101100 01101111 00101100 00100000 01110010 01100101 01100001 01100100 01100101 01110010 00100001
@@ -89,6 +97,8 @@ And if we interpret these bytes as ASCII...
 H e l l o ,  r e a d e r !
 ```
 
+Boom!
+
 I added spaces just for the visualization, but of course the computer doesn't
 need to break this up with spaces, since it can figure out the bytes by itself.
 
@@ -96,7 +106,18 @@ need to break this up with spaces, since it can figure out the bytes by itself.
 # Okay... but why 0's and 1's???
 Long story short, because electricity.
 
-The longer story, is about voltage, and our ability to confidently measure that.
+The longer story, it's about voltage, and our ability to confidently measure 
+that. I'm not going to pretend that I'm an electrical engineer, but I will try
+my best to describe what goes on here. We set voltage high or voltage low in
+order to store information, like a light switch—the light is either on or off,
+and we don't really have any intermediate states (shush about those weird 
+slider lights, this is just an example/analogy). Therefore we're storing
+information in a series of either on's or off's.
+
+There are people researching how to do quantum computing, which would
+theoretically allow us to store information in 4 states, or base 4. This is
+still experimental... but the gist of it is that it's looking at the quantum
+states of an electron and how it exists in order to encode information.
 
 
 # So how come I so rarely actually see 0's and 1's?
@@ -106,17 +127,19 @@ string of 0's and 1's, so often we display it in another format: Hexadecimal.
 For our `Hello, reader!` example, this would look like:
 
 ```
-
+48 65 6c 6c 6f 2c 20 72 65 61 64 65 72 21
 ```
 
 How is this equivalent...? Well, math. The system of numbers we all know and
 love is in "base 10", and is thus called "decimal". Remember the decimal point?
-that was so we could break something down to be less than 1. Essentially, we
-had the following in decimal:
+that was so we could break something down to be less than 1. Let's take the
+number 127 as an example. Essentially, we had the following in decimal:
 
 | 100's | 10's | 1's |
 |--------------------|
 |  1    |   2  |  7  |
+
+_Table 1: The number 127 broken down into base 10 (decimal) columns_
 
 In order to get the number 127. Which means there are 1 groupings of 100, 2
 groupings of 10, 7 groupings of 1. Each time we hit a "10 boundary", we remove
@@ -136,23 +159,25 @@ left. Base 10:
 |--------------------------------------------------|
 |     1          |       2        |       7        |
 
+_Table 2: The number 127 broken down into base 10 columns by powers of 10_
+
 Basically, for any base, you just make that the big number and put the power
 next to it of the column index from the right to left and those are your
 "buckets". Pretty neat, huh?
 
 So, what does 127 look like in bases 2 and 16?
 
-Base 2:
-
 | 128's | 64's | 32's | 16's | 8's | 4's | 2's | 1's |
 |----------------------------------------------------|
 |   0   |  1   |  1   |  1   |  1  |  1  |  1  |  1  |
 
-Base 16:
+_Table 3: the number 127 broken down into base 2 (binary) columns_
 
 | 16's | 1's |
 |------------|
 |  7   |  f  |
+
+_Table 4: the number 127 broken down into base 16 (hexadecimal) columns_
 
 For hexadecimal, it should be noted that since they run out of digits (0-9 being
 used already) they just leak over into the alphabet and start taking from the
