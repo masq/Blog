@@ -182,3 +182,149 @@ _Table 4: the number 127 broken down into base 16 (hexadecimal) columns_
 For hexadecimal, it should be noted that since they run out of digits (0-9 being
 used already) they just leak over into the alphabet and start taking from the
 top. That is, letters A-F are used to denote 10-15 in hexadecimal.
+
+# Still not sure how this makes the computer work?
+
+Okay, so we covered how information is represented in different ways using 1's
+and 0's, but we don't really talk about how the code that you write in X
+programming language actually makes the computer do things.
+
+Well, turns out, just like how we can take a bunch of 0's and 1's and make those
+represent letters of the English alphabet, we too can use these 1's and 0's to
+make the various hardware components of our computer do things. Mostly, the
+Central Processing Unit, or CPU. Every CPU that gets made will have a mapping of
+0's and 1's "hard-coded" or "hard-wired" into it that makes it do a thing. So
+just like how we have
+
+```
+48 65 6c 6c 6f 2c 20 72 65 61 64 65 72 21
+```
+
+mean "Hello, reader!" if we interpret it as ascii, we can also have those bytes
+mean something else in different CPU languages, called machine languages,
+somewhat analogous to the term "architecture", though.
+
+Taking the above bytes and interpreting as x86 assembly, a very popular machine
+language results in the following machine code
+
+```
+48656C                          INS BYTE PTR GS:[RDI],DX
+6C                              INS BYTE PTR [RDI],DX
+6F                              OUTS DX,DWORD PTR [RSI]
+2C20                            SUB AL,20
+7265                            JB 000000000000006E
+61                              ???
+64657221                        JB 000000000000002F
+```
+
+on the left, we have a breakdown of the bytes corresponding to the "instruction"
+on the right, per line. Essentially, at machine languages, the operations are
+generally "atomic"; that is, they cannot be broken down into smaller steps. This
+tends to make individual assembly instructions fairly meaningless. Take for
+example, the fourth line of the "disassembly":
+
+```
+2C20                            SUB AL,20
+```
+
+This line is saying the bytes `2C 20` correspond to the instruction `SUB AL,20`.
+This instruction, translated to "English" (rather, nerd English) means "Subtract
+20 from the 'AL' register and store it into the 'AL' register". This doesn't
+mean too much, but honestly, the whole disassembly of the phrase "Hello,
+reader!" doesn't mean too much. But as you can see, your CPU is basically
+running all of these instructions, and that's what the frequency corresponds to.
+Some CPU's will say that they have a clock speed of, say, 3.5 GHz. This means
+that they are able to read and execute 3.5 billion of those instructions per
+second. That's a lot... but they're also pretty small.
+
+## Sure, so assembly is a thing... a weird thing... how does code make it to that though?
+
+Right, well... let's take a programming language like C. I take this as my
+example, since it is considered a "lower level" language.
+
+```
+void main() {
+	printf("Hello, world!\n");
+}
+```
+_Figure x: C code that will print the phrase "Hello, world!" to the screen in a
+terminal window, once it has been compiled_
+
+Just to go over what's happening here, the line `void main() {` is creating a
+"function", a bit of executable code that can run, and naming it "main". In C,
+and many other languages, a pre-requisite for having a program/app is having a
+function named "main". That's just what the people who invented C wanted. the
+word `void` just means that this function doesn't "produce" anything. In this
+context, that's kinda useless, but when you have many functions, you'll want
+them to produce something versus just "do" something. For example, think about a
+coal miner. That coal miner is going to mine coal, but you'll want the coal
+miner to not just mine the coal, but also bring the coal back out of the mine,
+not just lose it from the rocks in the mine. In this case, we have our function
+"main" just scrawling "Hello, world!" onto the wall, but we don't need/want it
+to bring anything back to us. The line `printf("Hello, world!\n");` is the part
+that actually prints to the screen the string "Hello, world!". it does this by
+"calling" the "printf" "function" with the "parameter" `Hello, world!\n`. printf
+is a function just like our "main" function is a function, but printf was
+created by the people who made the C programming language. the final line `}` is
+just ending the function we named main. Kinda a lot to unpack, I tried to make
+the example as simple/straight-forward as possible.
+
+With a low level language like C, we have to do a thing called "compiling".
+Compilation is a fancy term for "translation", (it's called compiling because
+usually programs are much more complicated than this and comprise of many
+different code files referring to each other, and compilation takes all those
+things and makes into one executable file versus a ton of text files with C code
+written in them. I should note, sometimes compiling/compilation is referred to
+as "building". Essentially, the same thing.
+
+After doing compilation on this, we are given an executable file. Since I'm
+using Linux, it might look a bit different than if this code were compiled for a
+system like Windows or MacOS, but here is the disassembly of the code in the
+executable file after I've compiled it.
+
+```
+55                      push   rbp
+48 89 e5                mov    rbp,rsp
+bf c4 05 40 00          mov    edi,0x4005c4
+e8 d5 fe ff ff          call   400410 <puts@plt>
+5d                      pop    rbp
+c3                      ret    
+0f 1f 00                nop    DWORD PTR [rax]
+```
+_Figure X: Disassembly of our "hello world" C program_
+
+Cool. What does that all mean? Well, some of this is actually kinda useless to
+the actual "direct" functioning of the program. I'll break it out into the
+different parts of this.
+
+```
+; Function prologue, basically just announcing the fact that we are entering a
+; function.
+55                      push   rbp
+48 89 e5                mov    rbp,rsp
+
+; Move the value 0x4005c4 into the register "edi".
+; Call the function located at 0x400410 in memory. (this is the function called
+; "puts")
+bf c4 05 40 00          mov    edi,0x4005c4
+e8 d5 fe ff ff          call   400410 <puts@plt>
+
+; Function epilogue, basically just cleaning up the fact that we were just in a
+; function 
+5d                      pop    rbp
+c3                      ret    
+
+; Totally useless. This is probably just a "compiler optimization". Generally,
+; it's done in order to get our code to "align", or be at least 4 bytes wide.
+; Counting the bytes above, there are 12, which is a multiple of 4 so... idk.
+; Compilers are weird sometimes :P
+0f 1f 00                nop    DWORD PTR [rax]
+```
+_Figure X: Disassembly of our "hello world" C program with comments and spacing_
+
+If you're staring at this, and just thinking "WTF", you're not in the wrong. I
+would argue that that's a pretty standard line of thinking at this point. In
+fact, I would argue that most programmers in this day and age don't know _any_
+assembly or how it works, why their code runs... etc, at all. So, good job,
+you probably already know/understand some of the inner workings of their
+code/programming more than they do.
