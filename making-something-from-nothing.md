@@ -26,6 +26,7 @@ public class Example {
 	}
 }
 ```
+_Figure 1: Java code for printing the phrase "Hello World!" to the terminal._
 
 This snippet of code (Java is the language, BTW), was shown to me when I first
 started programming. Lots of things to unpack here, and my teacher would gloss
@@ -50,6 +51,7 @@ theory of information. Take this string of characters for example:
 ```
 ORDLAXSEAIADATLHNLBOS
 ```
+_Figure 2: A long sequence of seemingly-random capital letters._
 
 What do these characters mean? Well, as it stands, not much. However, if we
 break them up in a certain way, it might become more useful.
@@ -57,11 +59,12 @@ break them up in a certain way, it might become more useful.
 ```
 ORD LAX SEA IAD ATL HNL BOS
 ```
+_Figure 3: A series of three capital letter sequences. One interpretation of this might be a list of acronyms for airports in the United States._
 
 Okay, does this mean anything to you? This is much more useful to me. Once
 broken up with spaces like this, I actually recognize those three letter
 groupings as acronyms for airports in the USA. (It's okay if you didn't
-recognize that, I'm just a freak, it's fine). 
+recognize that, I'm just a freak, it's fine).
 
 ## Interpreting information
 Great, that's really cool, we can recognize some meaning from a string of what
@@ -71,6 +74,7 @@ seemed like random characters. This is effectively what a computer does with
 ```
 0100100001100101011011000110110001101111001011000010000001110010011001010110000101100100011001010111001000100001
 ```
+_Figure 4: A long string of 0's and 1's._
 
 Here's a string of 0's and 1's. What does it mean though? Not necessarily
 anything, unless we apply some of the right rules to interpret this data.
@@ -84,18 +88,20 @@ of "rules" for how to interpret this series of ones and zeros. Basically, we
 told the computer that whenever it sees `01100001`, it should display the
 character `a` (under ASCII). ASCII describes an entire mapping of each
 permutation of eight 0's and 1's. We call each 0 or 1 "slot", a `bit`. A
-grouping of 8 bits is one `byte`. Let's break up the previous string of bits 
+grouping of 8 bits is one `byte`. Let's break up the previous string of bits
 into bytes.
 
 ```
 01001000 01100101 01101100 01101100 01101111 00101100 00100000 01110010 01100101 01100001 01100100 01100101 01110010 00100001
 ```
+_Figure 5: A long string of 0's and 1's broken up at 8 character marks; i.e. byte marks._
 
 And if we interpret these bytes as ASCII...
 
 ```
 H e l l o ,  r e a d e r !
 ```
+_Figure 6: The string "Hello, reader!" in ASCII, with spacing between characters; i.e. byte marks._
 
 Boom!
 
@@ -106,11 +112,11 @@ need to break this up with spaces, since it can figure out the bytes by itself.
 # Okay... but why 0's and 1's???
 Long story short, because electricity.
 
-The longer story, it's about voltage, and our ability to confidently measure 
+The longer story, it's about voltage, and our ability to confidently measure
 that. I'm not going to pretend that I'm an electrical engineer, but I will try
 my best to describe what goes on here. We set voltage high or voltage low in
 order to store information, like a light switch—the light is either on or off,
-and we don't really have any intermediate states (shush about those weird 
+and we don't really have any intermediate states (shush about those weird
 slider lights, this is just an example/analogy). Therefore we're storing
 information in a series of either on's or off's.
 
@@ -124,11 +130,17 @@ states of an electron and how it exists in order to encode information.
 
 Typically, we humans can't easily tell what a byte means when displayed as a
 string of 0's and 1's, so often we display it in another format: Hexadecimal.
-For our `Hello, reader!` example, this would look like:
+Although, that's usually not amazingly better, I've (unfortunately) begun to
+recognize various hexadecimal for its ASCII representation. For example, if I
+see the bytes `4D 5A`, I know those represent the letters "MZ", since those come
+up a lot in my work. It is admittedly easier on the eyes to look at as opposed
+to looking at the 0's and 1's representation.
+For our `Hello, reader!` example, in hexadecimal it would look like:
 
 ```
 48 65 6c 6c 6f 2c 20 72 65 61 64 65 72 21
 ```
+_Figure 7: The phrase "Hello, reader!" displayed as hexadecimal._
 
 How is this equivalent...? Well, math. The system of numbers we all know and
 love is in "base 10", and is thus called "decimal". Remember the decimal point?
@@ -199,6 +211,7 @@ just like how we have
 ```
 48 65 6c 6c 6f 2c 20 72 65 61 64 65 72 21
 ```
+_Figure 8: The phrase "Hello, reader!" displayed as hexadecimal._
 
 mean "Hello, reader!" if we interpret it as ascii, we can also have those bytes
 mean something else in different CPU languages, called machine languages,
@@ -216,6 +229,7 @@ language results in the following machine code
 61                              ???
 64657221                        JB 000000000000002F
 ```
+_Figure 9: The phrase "Hello, reader!" interpreted as x86 assembly... it doesn't really work._
 
 on the left, we have a breakdown of the bytes corresponding to the "instruction"
 on the right, per line. Essentially, at machine languages, the operations are
@@ -226,16 +240,23 @@ example, the fourth line of the "disassembly":
 ```
 2C20                            SUB AL,20
 ```
+_Figure 10: The ", " of "Hello, reader!" interpreted as x86 assembly._
 
 This line is saying the bytes `2C 20` correspond to the instruction `SUB AL,20`.
 This instruction, translated to "English" (rather, nerd English) means "Subtract
-20 from the 'AL' register and store it into the 'AL' register". This doesn't
-mean too much, but honestly, the whole disassembly of the phrase "Hello,
-reader!" doesn't mean too much. But as you can see, your CPU is basically
-running all of these instructions, and that's what the frequency corresponds to.
-Some CPU's will say that they have a clock speed of, say, 3.5 GHz. This means
-that they are able to read and execute 3.5 billion of those instructions per
-second. That's a lot... but they're also pretty small.
+20 from the 'AL' register and store it into the 'AL' register". (In assembly
+language, they have a limited set of places to store information temporarily,
+these places are called "registers", and they all have simple little names like
+"al", "bl", "cl", etc. Put another way, think of how in math you might have
+`2x + 1 = 15`, where `x` represents some variable. Registers in assembly are
+basically variables, but in assembly they just have a limited set of variables
+that are available. As if you could only use "x", "y", and "z" as variable
+characters.) This doesn't mean too much, but honestly, the whole disassembly of
+the phrase "Hello, reader!" doesn't mean too much. But as you can see, your CPU
+is basically running all of these instructions, and that's what the frequency
+corresponds to. Some CPU's will say that they have a clock speed of, say,
+3.5 GHz. This means that they are able to read and execute 3.5 billion of those
+instructions per second. That's a lot... but they're also pretty small.
 
 ## Sure, so assembly is a thing... a weird thing... how does code make it to that though?
 
@@ -247,8 +268,8 @@ void main() {
 	printf("Hello, world!\n");
 }
 ```
-_Figure x: C code that will print the phrase "Hello, world!" to the screen in a
-terminal window, once it has been compiled_
+_Figure 11: C code that will print the phrase "Hello, world!" to the screen in a
+terminal window, once it has been "compiled"._
 
 Just to go over what's happening here, the line `void main() {` is creating a
 "function", a bit of executable code that can run, and naming it "main". In C,
@@ -265,9 +286,12 @@ to bring anything back to us. The line `printf("Hello, world!\n");` is the part
 that actually prints to the screen the string "Hello, world!". it does this by
 "calling" the "printf" "function" with the "parameter" `Hello, world!\n`. printf
 is a function just like our "main" function is a function, but printf was
-created by the people who made the C programming language. the final line `}` is
-just ending the function we named main. Kinda a lot to unpack, I tried to make
-the example as simple/straight-forward as possible.
+created by the people who made the C programming language. The "\n" is for
+making a "new line" after printing "Hello, world!", so that anything written
+after we've written "Hello, world!" will be at the beginning of another line.
+The final line `}` is just ending the function we named main. Kinda a lot to
+unpack, I know, I tried to make the example as simple/straight-forward as
+possible though.
 
 With a low level language like C, we have to do a thing called "compiling".
 Compilation is a fancy term for "translation", (it's called compiling because
@@ -291,7 +315,7 @@ e8 d5 fe ff ff          call   400410 <puts@plt>
 c3                      ret    
 0f 1f 00                nop    DWORD PTR [rax]
 ```
-_Figure X: Disassembly of our "hello world" C program_
+_Figure 12: Disassembly of our "Hello, World!" C program._
 
 Cool. What does that all mean? Well, some of this is actually kinda useless to
 the actual "direct" functioning of the program. I'll break it out into the
@@ -306,11 +330,17 @@ different parts of this.
 ; Move the value 0x4005c4 into the register "edi".
 ; Call the function located at 0x400410 in memory. (this is the function called
 ; "puts")
+; What's happened here is that our C compiler was being clever and replaced our
+; function call to "printf" with "puts", since it's easier and we weren't using
+; any of the fancy stuff that printf _can_ do.
+; The value 0x4005c4 is probably the location in memory that our string
+; "Hello, World!" is located so that "puts" can find it when it looks at the
+; register "edi".
 bf c4 05 40 00          mov    edi,0x4005c4
 e8 d5 fe ff ff          call   400410 <puts@plt>
 
 ; Function epilogue, basically just cleaning up the fact that we were just in a
-; function 
+; function
 5d                      pop    rbp
 c3                      ret    
 
@@ -320,11 +350,13 @@ c3                      ret
 ; Compilers are weird sometimes :P
 0f 1f 00                nop    DWORD PTR [rax]
 ```
-_Figure X: Disassembly of our "hello world" C program with comments and spacing_
+_Figure 13: Disassembly of our "hello world" C program with comments and spacing._
 
-If you're staring at this, and just thinking "WTF", you're not in the wrong. I
-would argue that that's a pretty standard line of thinking at this point. In
-fact, I would argue that most programmers in this day and age don't know _any_
-assembly or how it works, why their code runs... etc, at all. So, good job,
-you probably already know/understand some of the inner workings of their
-code/programming more than they do.
+If you're following this, you're either fairly experienced with this stuff
+already, or you're crazy akin to this stuff. If you're staring at this, and just
+thinking "WTF", you're not in the wrong. I would argue that that's a pretty
+standard line of thinking at this point. In fact, I would argue that most
+programmers in this day and age don't know _any_ assembly or how it works, why
+their code runs... etc, at all. So, good job, you probably already
+know/understand some of the inner workings of their code/programming more than
+they do.
