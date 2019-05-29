@@ -220,7 +220,7 @@ somewhat analogous to the term "architecture", though.
 Taking the above bytes and interpreting as x86 assembly, a very popular machine
 language results in the following machine code
 
-```x86asm
+```asm
 48656C                          INS BYTE PTR GS:[RDI],DX
 6C                              INS BYTE PTR [RDI],DX
 6F                              OUTS DX,DWORD PTR [RSI]
@@ -237,7 +237,7 @@ generally "atomic"; that is, they cannot be broken down into smaller steps. This
 tends to make individual assembly instructions fairly meaningless. Take for
 example, the fourth line of the "disassembly":
 
-```x86asm
+```asm
 2C20                            SUB AL,20
 ```
 _Figure 10: The ", " of "Hello, reader!" interpreted as x86 assembly._
@@ -306,7 +306,7 @@ using Linux, it might look a bit different than if this code were compiled for a
 system like Windows or MacOS, but here is the disassembly of the code in the
 executable file after I've compiled it.
 
-```x86asm
+```asm
 55                      push   rbp
 48 89 e5                mov    rbp,rsp
 bf c4 05 40 00          mov    edi,0x4005c4
@@ -321,7 +321,7 @@ Cool. What does that all mean? Well, some of this is actually kinda useless to
 the actual "direct" functioning of the program. I'll break it out into the
 different parts of this.
 
-```x86asm
+```asm
 ; Function prologue, basically just announcing the fact that we are entering a
 ; function.
 55                      push   rbp
