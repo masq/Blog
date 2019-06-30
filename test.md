@@ -1,9 +1,9 @@
 # TITLE
 
-# Something important
+## Something important
 Some words about how important that thing is.
 
-## A subsection of that very point
+### A subsection of that very point
 Followed by some words that back that up
 
 For example,
@@ -13,7 +13,7 @@ x = 'something'
 pprint(len(x))
 ```
 
-## This reminds me of
+### This reminds me of
 
 this image ![some image](https://i.kym-cdn.com/photos/images/newsfeed/000/131/351/eb6.jpg?1307463786)
 
@@ -21,10 +21,10 @@ or a local image ![local image](/static/home/assets/test.jpg)
 
 perhaps even [this link](https://i.kym-cdn.com/photos/images/newsfeed/000/131/351/eb6.jpg?1307463786)
 
-# Another point entirely
+## Another point entirely
 I can't believe it, but I've almost got an argument here too. Check in `/var/log` as well.
 
-## In Fact
+### In Fact
 In HTML, I might do something like the following:
 
 ```html
@@ -39,7 +39,7 @@ In HTML, I might do something like the following:
 </body>
 ```
 
-### A third level of point
+#### A third level of point
 I really hope I don't even need to use sections this low down the list to be quite honest.
 
 But in the meantime, I _will_ make a list!
@@ -63,7 +63,7 @@ and I quote
 
 > \> ramble on about some bullshit
 
-# Conclusion
+## Conclusion
 To Wrap everything up, I'm going to make a table
 
 | Column A | Column B | Column C |

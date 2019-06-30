@@ -1,6 +1,6 @@
 # Making Something From Nothing
 
-# How do you make something from... nothing?
+## How do you make something from... nothing?
 When you want to learn how to program, you will come upon two different types of
 resources. One of those resources will start with the assumption that you know
 how to program already, you're just trying to learn a different programming
@@ -38,7 +38,7 @@ told me to just memorize "public static void main paren string bracket bracket
 args end paren", for example. This was irksome to me, so I want to straighten
 some of this out and try to really get a "from the ground up" approach to this.
 
-# The computer runs on 0's and 1's
+## The computer runs on 0's and 1's
 You always see this in shows, and when you're on the computer... you see
 Facebook, you see the windows desktop, etc. I see no zeros and ones, so what's
 the deal with that?
@@ -66,7 +66,7 @@ broken up with spaces like this, I actually recognize those three letter
 groupings as acronyms for airports in the USA. (It's okay if you didn't
 recognize that, I'm just a freak, it's fine).
 
-## Interpreting information
+### Interpreting information
 Great, that's really cool, we can recognize some meaning from a string of what
 seemed like random characters. This is effectively what a computer does with
 0's and 1's. And we can too, if we went with similar (what I'll call) "rules".
@@ -109,7 +109,7 @@ I added spaces just for the visualization, but of course the computer doesn't
 need to break this up with spaces, since it can figure out the bytes by itself.
 
 
-# Okay... but why 0's and 1's???
+## Okay... but why 0's and 1's???
 Long story short, because electricity.
 
 The longer story, it's about voltage, and our ability to confidently measure
@@ -126,7 +126,7 @@ still experimental... but the gist of it is that it's looking at the quantum
 states of an electron and how it exists in order to encode information.
 
 
-# So how come I so rarely actually see 0's and 1's?
+## So how come I so rarely actually see 0's and 1's?
 
 Typically, we humans can't easily tell what a byte means when displayed as a
 string of 0's and 1's, so often we display it in another format: Hexadecimal.
@@ -195,7 +195,7 @@ For hexadecimal, it should be noted that since they run out of digits (0-9 being
 used already) they just leak over into the alphabet and start taking from the
 top. That is, letters A-F are used to denote 10-15 in hexadecimal.
 
-# Still not sure how this makes the computer work?
+## Still not sure how this makes the computer work?
 
 Okay, so we covered how information is represented in different ways using 1's
 and 0's, but we don't really talk about how the code that you write in X
@@ -258,7 +258,7 @@ corresponds to. Some CPU's will say that they have a clock speed of, say,
 3.5 GHz. This means that they are able to read and execute 3.5 billion of those
 instructions per second. That's a lot... but they're also pretty small.
 
-## Sure, so assembly is a thing... a weird thing... how does code make it to that though?
+### Sure, so assembly is a thing... a weird thing... how does code make it to that though?
 
 Right, well... let's take a programming language like C. I take this as my
 example, since it is considered a "lower level" language.

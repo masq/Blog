@@ -1,6 +1,7 @@
 # Getting Started in InfoSec
 
-# So you want to get started in Information Security
+## So you want to get started in Information Security
+
 That's awesome, and I would argue it's a great field to get into. That said,
 it's a very intmidating field to get into. There is a lot of jargon to
 understand, and some people's jobs are kinda stops along the way to being some
@@ -16,7 +17,8 @@ hard to find the correct "starting" point. Instead you find yourself trying to
 get into an impenetrable circle of knowledge—any time you try to learn something
 it's hard to learn it because of the dependencies on other knowledge.
 
-# Get over being stupid. You are. You always will be.
+## Get over being stupid. You are. You always will be.
+
 I realize this is a strong statement, and I intend it to be. But hear me out.
 
 Starting off in this field, you will find it intimidating. Starting off for the
@@ -24,6 +26,9 @@ first time in a CTF or something _will_ be intimidating, you will feel dumb.
 And, you're _not_ dumb per se, but you are certainly ignorant. You're ignorant
 in that you've not yet had the chance to learn this thing. That's okay. Everyone
 _must_ start somewhere.
+
+Honestly, it's also hard to get over this, particularly for those of us who were
+blessed enough
 
 Now, that's just within yourself, there is also the difficulty of the other
 people in the field. They will also be intimidating. Why? A variety of reasons.
@@ -39,9 +44,12 @@ the awkward position of essentially admiting their own stupidity. It's crappy,
 but it's honestly going to happen so many times that you must get over it in
 order to proceed in learning. Personally, I learn best via others; so I've
 definitely needed to get over sounding/being stupid, because in all honesty, I
-was, and in some fields, I still am. That said, there's also the infamous
+was, and in some fields, I still am.
 
-## Imposter Syndrome...
+That said, there's also the infamous
+
+### Imposter Syndrome...
+
 Which helps to contribute to this incredulous question asking. People want to be
 smart, and are insecure in their own intelligence. It starts when they start off
 in the field and everyone around them is so knowledgable... and it never goes
@@ -51,7 +59,8 @@ never really felt that classification resonate with me. There are still so many
 things that I'm not good at / don't know within the infosec field, and yet,
 there are still many many things that I do know.
 
-# Strategy
+## Strategy
+
 I recommend failing fast. Realize what things you don't know and then just go be
 stupid at experts in order to goad them into telling you the information you
 need. Play off of the imposter syndrome—people want to feel smart, so go be dumb
@@ -75,14 +84,16 @@ door, just accept your own ignorance/stupidity and blaze on through
 conversations with people for that mutual benefit I mentioned earlier. You
 _might_ even contract some friends \*shudders\*
 
-# All of this said
+## All of this said
+
 and yet I didn't even say where to get started. I've mentioned CTF at this point
 a few times, and so you're probably wondering wtf I'm talking about. CTF stands
 for Capture The Flag (CTF), and I can't define it better than just sending you
 to [CTFTime](ctftime.org), which is a website all about CTFs. It's not the
 physical version of CTF, but a hacking challenge/puzzle game.
 
-# What all is there in infosec
+## What all is there in infosec
+
 I'd say there are quite a few sub-fields within infosec. I think that as of this
 writing, redteaming/appsec are the current hotness. Here is a list of the
 sub-fields within infosec that you might want to check out/consider.
@@ -182,11 +193,13 @@ Security Engineering / Development is going to just be coding work related to
 security. There are tons of things that need coded that are for security
 specific domains.
 
-# Recommendation
-B-but Spencer, I don't know which thing I want to do and they're all equally
-interesting. I get that... so then you're probably wondering which one is
+## Recommendation
+
+>B-but Spencer, I don't know which thing I want to do and they're all equally
+interesting.
+I get that... so then you're probably wondering which one is
 easiest so you can start. Well... None of them are easy, so that's not really a
-good filter for where to start.
+good filter for where to start, and they're often interconnected anyways, so...
 
 I would say pick one, even if you aren't sure you'll like it, and just try to
 get at least a good working knowledge of that one. If you find you love it, hell
@@ -203,11 +216,12 @@ you'll need to sleep or something. If not, feel free to look at other
 challenges, but the important bit is to bang your head on the wall for a long
 period of time. That will make the problem memorable for you, and what the
 problem was that you needed to solve. Once the CTF is over, wait a bit/watch for
-Writeups that people put out on how to solve the problem. This will allow you to
+writeups that people put out on how to solve the problem. This will allow you to
 see where you got stuck and see what was needed to overcome that obstacle and
 you will absolutely remember to do that next time it comes up.
 
-# Resources
+## Resources
+
 TODO: links to resources
 
 

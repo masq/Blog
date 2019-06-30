@@ -1,6 +1,6 @@
 # Abiding by the Rules in Order to Rebel from Within Adversarial Networks
 
-# Background
+## Background
 Okay, so today I'm going to take a stab at writing the blog article that I
 should have written a few years ago. This is a blog about my time reverse
 engineering the WeChat web application API/protocol in order to develop my own
@@ -55,7 +55,7 @@ proof, I do make the assumption that the Chinese government works fairly
 closely with Tencent.
 
 
-# Where to even begin
+## Where to even begin
 First thing's first, I needed to learn how this system worked. I had never used
 WeChat as an app, so I was new to the whole thing entirely. Not to mention the
 fact that pretty much any information about WeChat was in Chinese.
@@ -75,7 +75,7 @@ of the mobile app, and so upon logging into the web app, you find that the only
 functionality in there is the contacts list and the messaging capabilities.
 Cool, that's fine, I didn't need that feed thing anyways!
 
-# Okay, where's the X?
+## Okay, where's the X?
 Focusing on the web app, I poked around to see what I could find. There were
 all of the contacts that I had added, but there were a few contacts in there
 that were in by default. One was like the WeChat support, and another was
@@ -132,12 +132,12 @@ irrelevant to us. That doesn't mean I didn't start by trying to rename all of
 the variables in here—I hadn't even heard of minification or knew how Angular
 worked at this point, so I figured that was the best course of action.
 
-# Fortune favors the bold
+## Fortune favors the bold
 I did the "look for a network request, Ctrl+F for values in the Javascript"
 technique for quite a while... to great success, actually! But I kept watching
 the web app looking at the javascript when I got super lucky.
 
-## They uploaded a non-minified version of their web app code.
+### They uploaded a non-minified version of their web app code.
 
 `:awwwww_yeah:`
 
@@ -177,7 +177,7 @@ CAN UNDERSTAND
 Sorry, I got excited. It was a pivotal moment, getting this working. LET'S HOPE
 I DON'T SCREW IT ALL UP
 
-# Screwing it all up
+## Screwing it all up
 Queue the "It's always Sunny" music, here we go. So, it was around this time
 that the uProxy team discovered that people didn't like all of the contacts
 from `<insert social provider here>` knowing that they use uProxy, or didn't
@@ -218,7 +218,7 @@ said to us".
 Well... this isn't too bad right? This will all just blow over, and it'll be
 fine, I doubt they're really going to look into this whole thing very much.
 
-# Not blowing over, getting looked into
+## Not blowing over, getting looked into
 Shortly after this, my hidden message trick stopped working. Every message send
 with the STATUSNOTIFY type that had text sent with it was now displayed to
 users, both in the phone and on the web app. yay... okay, great, so is there
